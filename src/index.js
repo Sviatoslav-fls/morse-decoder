@@ -47,11 +47,11 @@ function decode(expr) {
     lettersArr[i] = lettersArr[i].replace(/11/g, '-');
     lettersArr[i] = lettersArr[i].replace(/00/g, '');
 
-    for (key in MORSE_TABLE) {
-      if (lettersArr[i] === key) result += MORSE_TABLE[key];
-    }
-
     if (lettersArr[i] === '**********') result += ' ';
+
+    for (key in MORSE_TABLE) {
+      if (key === lettersArr[i]) result += MORSE_TABLE[key];
+    }
   }
   return result
 }
